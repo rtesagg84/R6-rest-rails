@@ -8,4 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :users,
+             controllers: {
+                 sessions: 'users/sessions',
+                 registrations: 'users/registrations'
+             }
+  get '/test', to: 'test#show'
 end
