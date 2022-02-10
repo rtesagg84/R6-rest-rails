@@ -16,7 +16,7 @@ class Api::V1::FactsController < ApplicationController
       # your code goes here
       @member = Member.find(params[:member_id])
      if @fact = @member.facts.find(params[:id])
-       render json : @fact,status: 200
+       render json: @fact,status: 200
      else
         render json: { error: 
         "The fact could not shown. #{@fact.errors.full_messages.to_sentence}"},
@@ -46,8 +46,7 @@ class Api::V1::FactsController < ApplicationController
         render json: { message: 'fact  successfully updated.'}, status: 200
       else
         render json: { error:
-          "Unable to update fact: #{@fact.errors.full_messages.to_sentence}"},
-        render :edit
+          "Unable to update fact: #{@fact.errors.full_messages.to_sentence}"}, status: 400
       end
     end
   
@@ -71,3 +70,4 @@ class Api::V1::FactsController < ApplicationController
     end
   
   end
+end
